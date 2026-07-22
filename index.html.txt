@@ -122,4 +122,59 @@ button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.2);}
   <input type="text" id="bankInfo" placeholder="IBAN ose detaje banke" oninput="updateQR()">
   <div class="gift-box">
     <div><h4>QR për pagesën</h4><img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Dhurate" alt="QR"></div>
-    <div><h4>Të dhënat</h4><p id="bankText" style="font-family:monospace;background:#f5f5f5;padding:10px;border-radius:8px;">Dhuratë Dasme</p
+    <div><h4>Të dhënat</h4><p id="bankText" style="font-family:monospace;background:#f5f5f5;padding:10px;border-radius:8px;">Dhuratë Dasme</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>7. Shpërndarja</h2>
+  <div class="share-link" id="shareUrl">https://emriyt.github.io/repo/</div>
+  <button onclick="copyLink()">📋 Kopjo Linkun</button>
+  <img id="shareQR" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com" alt="QR" style="border-radius:10px;border:2px solid var(--accent);background:#fff;width:120px;height:120px;margin-top:10px;">
+</section>
+
+<section>
+  <div class="notice">
+    <strong>Pa pagesë për krijim</strong> — Lista e të ftuarve është e pakufizuar. Ndryshimet ruhen automatikisht.
+  </div>
+</section>
+
+</div>
+
+<script>
+function setTheme(t){document.body.setAttribute('data-theme',t);saveData();}
+function saveData(){
+  const d={groom:document.getElementById('groom').value,bride:document.getElementById('bride').value,parents:document.getElementById('parents').value,date:document.getElementById('date').value,time:document.getElementById('time').value,venue:document.getElementById('venue').value,mapLink:document.getElementById('mapLink').value,photos:document.getElementById('photos').value,message:document.getElementById('message').value};
+  localStorage.setItem('dasmaData',JSON.stringify(d));renderPreview();updatePhotos();
+}
+function loadData(){
+  const raw=localStorage.getItem('dasmaData');if(!raw)return;const d=JSON.parse(raw);
+  document.getElementById('groom').value=d.groom||'';document.getElementById('bride').value=d.bride||'';
+  document.getElementById('parents').value=d.parents||'';document.getElementById('date').value=d.date||'';
+  document.getElementById('time').value=d.time||'';document.getElementById('venue').value=d.venue||'';
+  document.getElementById('mapLink').value=d.mapLink||'';document.getElementById('photos').value=d.photos||'';
+  document.getElementById('message').value=d.message||'';renderPreview();updatePhotos();updateQR();
+}
+function renderPreview(){
+  const g=document.getElementById('groom').value||'Dhëndri';const b=document.getElementById('bride').value||'Nusja';
+  const p=document.getElementById('parents').value||'';const dt=document.getElementById('date').value||'Data';
+  const tm=document.getElementById('time').value||'Ora';const v=document.getElementById('venue').value||'Vendi';
+  const msg=document.getElementById('message').value||'Ju ftojmë me kënaqësi të merrni pjesë në ditën tonë të veçantë.';
+  const ml=document.getElementById('mapLink').value||'#';
+  document.getElementById('pvNames').textContent=g+' & '+b;document.getElementById('pvParents').textContent=p;
+  document.getElementById('pvDate').textContent=dt+' — '+tm;document.getElementById('pvVenue').textContent=v;
+  document.getElementById('pvMsg').textContent=msg;document.getElementById('mapBtn').href=ml;
+}
+function updatePhotos(){
+  const raw=document.getElementById('photos').value;const urls=raw.split('\n').map(s=>s.trim()).filter(s=>s.length>0);
+  document.getElementById('pvPhotos').innerHTML='';document.getElementById('galleryGrid').innerHTML='';
+  urls.forEach(url=>{const img=document.createElement('img');img.src=url;img.alt='Foto';img.onerror=function(){this.style.display='none';};document.getElementById('pvPhotos').appendChild(img.cloneNode(true));document.getElementById('galleryGrid').appendChild(img);});
+}
+function addGuest(e){e.preventDefault();const name=document.getElementById('guestName').value;const msg=document.getElementById('guestMsg').value;const div=document.createElement('div');div.className='guest-item';div.innerHTML='<strong>'+name+'</strong><p>'+msg+'</p>';document.getElementById('guestList').prepend(div);document.getElementById('guestName').value='';document.getElementById('guestMsg').value='';}
+function updateQR(){const info=document.getElementById('bankInfo').value||'Dhurate Dasme';document.getElementById('qrImage').src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='+encodeURIComponent(info);document.getElementById('bankText').textContent=info;}
+function copyLink(){navigator.clipboard.writeText(window.location.href).then(()=>alert('Linku u kopjua!'));}
+window.addEventListener('DOMContentLoaded',()=>{loadData();document.getElementById('shareUrl').textContent=window.location.href;document.getElementById('shareQR').src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(window.location.href);});
+</script>
+
+</body>
+</html>
