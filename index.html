@@ -4,100 +4,101 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ftesa Dasme — Krijo Online</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fff8f0;--card:#fff;--text:#2d2d2d;--accent:#c0392b;--accent2:#e67e22;--font:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;}
-[data-theme="red"]{--accent:#c0392b;--accent2:#e74c3c;}
-[data-theme="green"]{--accent:#27ae60;--accent2:#2ecc71;}
-[data-theme="pink"]{--accent:#e84393;--accent2:#fd79a8;}
-[data-theme="blue"]{--accent:#2980b9;--accent2:#3498db;}
+:root{--bg:#f8f5f0;--card:#fffdf9;--text:#2c2c2c;--accent:#7a4f3b;--accent2:#bfa065;--font-body:'Cormorant Garamond',serif;--font-heading:'Playfair Display',serif;}
+[data-theme="gold"]{--accent:#7a4f3b;--accent2:#bfa065;}
+[data-theme="navy"]{--accent:#1e2a3a;--accent2:#c5a880;}
+[data-theme="rose"]{--accent:#8c3b4b;--accent2:#d4a5a5;}
+[data-theme="sage"]{--accent:#4a5d45;--accent2:#a8bfa8;}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:var(--font);background:linear-gradient(135deg,#fff5f0 0%,#ffe8d6 100%);color:var(--text);line-height:1.6;}
-.container{max-width:960px;margin:0 auto;padding:24px;}
-header{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;padding:48px 24px;border-radius:18px;text-align:center;margin-bottom:32px;box-shadow:0 10px 30px rgba(0,0,0,.12);}
-header h1{font-size:2.4rem;margin-bottom:8px;}
-header p{opacity:.95;font-size:1.05rem;}
-section{background:var(--card);padding:28px;border-radius:16px;margin-bottom:28px;box-shadow:0 6px 24px rgba(0,0,0,.06);animation:fadeIn .6s ease;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-h2{color:var(--accent);margin-bottom:18px;font-size:1.35rem;}
-label{display:block;margin:10px 0 6px;font-weight:600;}
-input,textarea,select{width:100%;padding:12px 14px;border:1.5px solid #ddd;border-radius:10px;font-size:1rem;margin-bottom:14px;}
-button{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;border:none;padding:14px 24px;border-radius:10px;font-size:1rem;cursor:pointer;font-weight:700;box-shadow:0 4px 12px rgba(0,0,0,.15);transition:.2s;}
-button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.2);}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-@media(max-width:720px){.grid-2{grid-template-columns:1fr;}header h1{font-size:1.7rem;}}
-.theme-picker{display:flex;gap:10px;margin-bottom:16px;}
-.theme-picker button{flex:1;padding:10px;border-radius:8px;font-size:.9rem;}
-.theme-picker .red{background:#c0392b;}
-.theme-picker .green{background:#27ae60;}
-.theme-picker .pink{background:#e84393;}
-.theme-picker .blue{background:#2980b9;}
-.preview-card{background:linear-gradient(180deg,#fff 70%,#fdf6f0);border:2px solid var(--accent);border-radius:20px;padding:32px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.08);margin-top:16px;}
-.preview-card h3{font-size:2rem;color:var(--accent);margin-bottom:8px;}
-.preview-card .date{font-weight:700;color:var(--accent2);margin:6px 0;}
-.preview-card .venue{font-style:italic;color:#555;margin:6px 0 16px;}
-.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:14px;}
-.photo-grid img{width:100%;height:120px;object-fit:cover;border-radius:10px;border:2px solid #eee;}
-.guest-list{background:#f9f9f9;padding:16px;border-radius:12px;margin-top:10px;}
-.guest-item{border-bottom:1px solid #e2e2e2;padding:10px 0;}
-.gift-box{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
-.gift-box img{width:160px;height:160px;border-radius:12px;border:2px solid var(--accent);background:#fff;}
-.share-link{background:#f0f0f0;padding:12px;border-radius:8px;word-break:break-all;font-family:monospace;font-size:.95rem;}
-.notice{background:#fff3cd;border-left:5px solid var(--accent2);padding:14px;border-radius:8px;margin-top:10px;color:#856404;}
+body{font-family:var(--font-body);background:linear-gradient(135deg,#faf8f5 0%,#f0ebe3 100%);color:var(--text);line-height:1.75;font-size:1.05rem;}
+.container{max-width:980px;margin:0 auto;padding:30px 24px;}
+header{background:linear-gradient(135deg,var(--accent) 0%,#3d2b1f 100%);color:#fdf8f0;padding:60px 28px;border-radius:22px;text-align:center;margin-bottom:36px;box-shadow:0 20px 50px rgba(60,40,20,.22);position:relative;overflow:hidden;}
+header::after{content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 60%);pointer-events:none;}
+header h1{font-family:var(--font-heading);font-size:2.8rem;margin-bottom:10px;letter-spacing:2px;text-shadow:0 2px 20px rgba(0,0,0,.25);font-weight:700;}
+header p{opacity:.92;font-size:1.1rem;font-style:italic;letter-spacing:.5px;}
+section{background:var(--card);padding:32px;border-radius:18px;margin-bottom:28px;box-shadow:0 10px 35px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.04);animation:fadeIn .7s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+h2{font-family:var(--font-heading);color:var(--accent);margin-bottom:20px;font-size:1.5rem;font-weight:700;letter-spacing:1px;}
+label{display:block;margin:12px 0 6px;font-weight:600;color:#555;font-size:.95rem;}
+input,textarea,select{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:10px;font-size:1rem;margin-bottom:16px;background:#fdfcf8;transition:.2s;}
+input:focus,textarea:focus{outline:none;border-color:var(--accent2);box-shadow:0 0 0 3px rgba(191,160,101,.15);}
+button{background:linear-gradient(90deg,var(--accent),#5a3a2a);color:#fff;border:none;padding:15px 28px;border-radius:10px;font-size:1rem;cursor:pointer;font-weight:700;box-shadow:0 6px 18px rgba(90,58,42,.25);transition:.25s;letter-spacing:.5px;}
+button:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(90,58,42,.35);}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:720px){.grid-2{grid-template-columns:1fr;}header h1{font-size:2rem;}}
+.theme-picker{display:flex;gap:10px;margin-bottom:18px;}
+.theme-picker button{flex:1;padding:12px;border-radius:8px;font-size:.85rem;font-family:var(--font-heading);text-transform:uppercase;letter-spacing:1px;}
+.theme-picker .gold{background:#7a4f3b;}.theme-picker .navy{background:#1e2a3a;}.theme-picker .rose{background:#8c3b4b;}.theme-picker .sage{background:#4a5d45;}
+.preview-card{background:#fdfcf8;border:2px solid var(--accent2);border-radius:22px;padding:44px 28px;text-align:center;box-shadow:0 15px 45px rgba(0,0,0,.08);margin-top:18px;position:relative;}
+.preview-card::before{content:"✦";position:absolute;top:14px;left:50%;transform:translateX(-50%);font-size:1.4rem;color:var(--accent2);opacity:.7;}
+.preview-card h3{font-family:var(--font-heading);font-size:2.2rem;color:var(--accent);margin-bottom:8px;font-weight:700;}
+.preview-card .date{font-family:var(--font-heading);font-weight:700;color:var(--accent);margin:8px 0;font-size:1.1rem;}
+.preview-card .venue{font-style:italic;color:#666;margin:8px 0 18px;}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-top:18px;}
+.photo-grid img{width:100%;height:130px;object-fit:cover;border-radius:10px;border:1px solid #ddd;box-shadow:0 4px 10px rgba(0,0,0,.06);}
+.guest-list{background:#fdfcf8;padding:18px;border-radius:12px;margin-top:12px;border:1px solid #eee;}
+.guest-item{border-bottom:1px solid #eae6df;padding:12px 0;}
+.gift-box{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.gift-box img{width:170px;height:170px;border-radius:14px;border:2px solid var(--accent);background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.08);}
+.share-link{background:#f6f4f0;padding:14px;border-radius:8px;word-break:break-all;font-family:monospace;font-size:.92rem;color:#555;border:1px solid #e8e4db;}
+.notice{background:#fdf8e8;border-left:4px solid var(--accent2);padding:16px;border-radius:10px;margin-top:12px;color:#5a4a30;font-style:italic;}
 </style>
 </head>
-<body data-theme="red">
+<body data-theme="gold">
 
 <header>
   <h1>Ftesa Dasme — Online</h1>
-  <p>Krijo, personalizo dhe ndaje ftesën tënde në gjuhën shqipe. Falas për ta krijuar — pagesë vetëm nëse e do përgjithmonë.</p>
+  <p>Krijo, personalizo dhe ndaje ftesën tënde në gjuhën shqipe. Falas për ta krijuar.</p>
 </header>
 
 <div class="container">
 
 <section>
-  <h2>1. Zgjidh temën (Shablloni)</h2>
-  <p>Zgjidh një nga temat e gatshme.</p>
+  <h2>1. Zgjidh Temën</h2>
+  <p>Zgjidh një stil luksoz për ftesën tënde.</p>
   <div class="theme-picker">
-    <button class="red" onclick="setTheme('red')">Temë e Kuqe</button>
-    <button class="green" onclick="setTheme('green')">Temë e Gjelbër</button>
-    <button class="pink" onclick="setTheme('pink')">Temë Rozë</button>
-    <button class="blue" onclick="setTheme('blue')">Temë Blu</button>
+    <button class="gold" onclick="setTheme('gold')">E Artë</button>
+    <button class="navy" onclick="setTheme('navy')">Blu Mbretërore</button>
+    <button class="rose" onclick="setTheme('rose')">Rozë e Lehtë</button>
+    <button class="sage" onclick="setTheme('sage')">E Gjelbër Natyrale</button>
   </div>
 </section>
 
 <section>
-  <h2>2. Plotëso të dhënat e dasmës</h2>
+  <h2>2. Plotëso të Dhënat</h2>
   <div class="grid-2">
-    <div><label>Emri i dhëndrit</label><input type="text" id="groom" placeholder="p.sh. Ardit" oninput="saveData()"></div>
-    <div><label>Emri i nuses</label><input type="text" id="bride" placeholder="p.sh. Elira" oninput="saveData()"></div>
+    <div><label>Emri i Dhëndrit</label><input type="text" id="groom" placeholder="p.sh. Ardit" oninput="saveData()"></div>
+    <div><label>Emri i Nuses</label><input type="text" id="bride" placeholder="p.sh. Elira" oninput="saveData()"></div>
   </div>
-  <label>Emrat e prindërve (opsionale)</label>
-  <input type="text" id="parents" placeholder="Familja e dhëndrit dhe nuses" oninput="saveData()">
+  <label>Emrat e Prindërve</label>
+  <input type="text" id="parents" placeholder="Familja e Dhëndrit dhe Familja e Nuses" oninput="saveData()">
   <div class="grid-2">
-    <div><label>Data</label><input type="text" id="date" placeholder="15 Gusht 2026" oninput="saveData()"></div>
+    <div><label>Data e Ceremonisë</label><input type="text" id="date" placeholder="15 Gusht 2026" oninput="saveData()"></div>
     <div><label>Ora</label><input type="text" id="time" placeholder="17:00" oninput="saveData()"></div>
   </div>
-  <label>Vendi</label>
+  <label>Vendi i Dasmës</label>
   <input type="text" id="venue" placeholder="Hotel Rogner, Tiranë" oninput="saveData()">
-  <label>Link i hartës (Google Maps)</label>
+  <label>Link i Hartës (Google Maps)</label>
   <input type="text" id="mapLink" placeholder="https://maps.google.com/..." oninput="saveData()">
   <label>Foto (URL) — një rresht për secilën</label>
   <textarea id="photos" rows="2" placeholder="https://example.com/foto1.jpg" oninput="updatePhotos()"></textarea>
-  <label>Mesazh shtesë</label>
-  <textarea id="message" rows="3" placeholder="Ju ftojmë me kënaqësi..." oninput="saveData()"></textarea>
+  <label>Mesazh Shtesë</label>
+  <textarea id="message" rows="3" placeholder="Ju ftojmë me kënaqësi të merrni pjesë në ditën tonë të veçantë..." oninput="saveData()"></textarea>
 </section>
 
 <section>
-  <h2>3. Pamja paraprake</h2>
+  <h2>3. Pamja Paraprake e Ftesës</h2>
   <div class="preview-card" id="previewCard">
     <h3 id="pvNames">Dhëndri & Nusja</h3>
     <p id="pvParents">Familja</p>
     <div class="date" id="pvDate">Data — Ora</div>
     <div class="venue" id="pvVenue">Vendi</div>
-    <p id="pvMsg" style="margin-top:12px;color:#555;">Ju ftojmë me kënaqësi.</p>
+    <p id="pvMsg" style="margin-top:14px;color:#555;">Ju ftojmë me kënaqësi të merrni pjesë në ditën tonë të veçantë.</p>
     <div class="photo-grid" id="pvPhotos"></div>
     <div style="margin-top:24px;">
-      <a id="mapBtn" href="#" target="_blank" style="display:inline-block;padding:10px 18px;background:var(--accent);color:#fff;text-decoration:none;border-radius:8px;font-weight:700;">📍 Shiko në Hartë</a>
+      <a id="mapBtn" href="#" target="_blank" style="display:inline-block;padding:12px 22px;background:var(--accent);color:#fff;text-decoration:none;border-radius:10px;font-weight:700;box-shadow:0 6px 16px rgba(90,58,42,.25);">📍 Shiko në Hartë</a>
     </div>
   </div>
 </section>
@@ -110,32 +111,43 @@ button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.2);}
 <section>
   <h2>5. Libri i Mysafirëve</h2>
   <form onsubmit="addGuest(event)">
-    <label>Emri</label><input type="text" id="guestName" placeholder="Emri juaj" required>
-    <label>Urimi</label><textarea id="guestMsg" rows="3" placeholder="Urime..." required></textarea>
-    <button type="submit">Dërgo</button>
+    <label>Emri Juaj</label><input type="text" id="guestName" placeholder="Emri juaj" required>
+    <label>Urimi</label><textarea id="guestMsg" rows="3" placeholder="Shkruani një urim të përzemërt..." required></textarea>
+    <button type="submit">Dërgo Urimin</button>
   </form>
-  <div class="guest-list" id="guestList"><p>Nuk ka ende urime.</p></div>
+  <div class="guest-list" id="guestList"><p>Nuk ka ende urime. Mysafirët mund të shkruajnë këtu.</p></div>
 </section>
 
 <section>
-  <h2>6. Kuti i Dhuratave (QR)</h2>
-  <input type="text" id="bankInfo" placeholder="IBAN ose detaje banke" oninput="updateQR()">
+  <h2>6. Kuti i Dhuratave</h2>
+  <p>Fut të dhënat e llogarisë për QR kod.</p>
+  <input type="text" id="bankInfo" placeholder="IBAN ose detaje bankare" oninput="updateQR()">
   <div class="gift-box">
-    <div><h4>QR për pagesën</h4><img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Dhurate" alt="QR"></div>
-    <div><h4>Të dhënat</h4><p id="bankText" style="font-family:monospace;background:#f5f5f5;padding:10px;border-radius:8px;">Dhuratë Dasme</p></div>
+    <div>
+      <h4>QR për Pagesën</h4>
+      <p style="font-size:.9rem;color:#777;">Skanoje këtë kod për të dhënë dhuratën.</p>
+      <img id="qrImage" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Dhurate" alt="QR">
+    </div>
+    <div>
+      <h4>Të Dhënat e Llogarisë</h4>
+      <p id="bankText" style="font-family:monospace;background:#f6f4f0;padding:12px;border-radius:8px;border:1px solid #ddd;">Dhuratë Dasme</p>
+    </div>
   </div>
 </section>
 
 <section>
-  <h2>7. Shpërndarja</h2>
+  <h2>7. Shpërndarja e Ftesës</h2>
+  <p>Kopjo këtë adresë dhe dërgoje mysafirëve.</p>
   <div class="share-link" id="shareUrl">https://emriyt.github.io/repo/</div>
   <button onclick="copyLink()">📋 Kopjo Linkun</button>
-  <img id="shareQR" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com" alt="QR" style="border-radius:10px;border:2px solid var(--accent);background:#fff;width:120px;height:120px;margin-top:10px;">
+  <div style="margin-top:14px;">
+    <img id="shareQR" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://example.com" alt="QR" style="border-radius:10px;border:2px solid var(--accent);background:#fff;width:130px;height:130px;">
+  </div>
 </section>
 
 <section>
   <div class="notice">
-    <strong>Pa pagesë për krijim</strong> — Lista e të ftuarve është e pakufizuar. Ndryshimet ruhen automatikisht.
+    <strong>Pa pagesë për krijim</strong> — Ndryshimet ruhen automatikisht. Lista e të ftuarve është e pakufizuar.
   </div>
 </section>
 
